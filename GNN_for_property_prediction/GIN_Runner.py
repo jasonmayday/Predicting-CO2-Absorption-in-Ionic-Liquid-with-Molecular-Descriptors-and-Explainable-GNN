@@ -42,7 +42,8 @@ class Runner(object):
             print("loading history model..")
 
             self._model = GIN(args)
-            state_dict_mod = torch.load('pretrained_model/GIN_300/best_model_para.pth',map_location=torch.device('cpu'))
+            state_dict_mod = torch.load('pretrained_model/GIN_300/best_model_para.pth', 
+                                        map_location = torch.device('cpu'))
             self._model.load_state_dict(state_dict_mod)
 
             self._optimizer = torch.optim.Adam(self._model.parameters(), lr=args['lr'], weight_decay=args['weight_decay'])
